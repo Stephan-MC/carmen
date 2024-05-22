@@ -28,6 +28,7 @@
             </div>
         </nav>
         <main class="grow">
+            <div class="bg-green-400 text-center py-8 text-4xl text-white text-semibold">@yield('title', 'Online Shop')</div>
             @yield('content')
         </main>
 
