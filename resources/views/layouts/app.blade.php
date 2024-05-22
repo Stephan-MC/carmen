@@ -12,9 +12,9 @@
             <span class="text-xl font-bold">Online Store</span>
             <div class="flex items-center [&>*]:space-x-4 [&>*]:px-4 divide-x divide-gray-200/50 font-semibold">
                 <div>
-                    <a href="" class="">Home</a>
-                    <a href="" class="">Products</a>
-                    <a href="" class="">Cart</a>
+                    <a href="/" class="">Home</a>
+                    <a href="/products" class="">Products</a>
+                    <a href="/cart" class="">Cart</a>
                     <a href="" class="">Store</a>
                 </div>
                 <div>
