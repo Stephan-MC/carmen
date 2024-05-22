@@ -16,3 +16,4 @@ Route::resources(
         'product' => ['except' => 'index']
     ]
 );
+Route::get('cart', fn () => view('cart'));
