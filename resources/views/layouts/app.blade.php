@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laravel Shop</title>
+    <title>@yield('title', 'Online Shop')</title>
     @vite('resources/css/app.css')
 </head>
 <body class="">
     <div class="flex flex-col min-h-screen">
-        <nav class="p-6 flex items-center justify-between text-white bg-slate-800">
+        <nav class="p-6 flex max-md:flex-col max-md:gap-4 items-center justify-between text-white bg-slate-800">
             <span class="text-xl font-bold">Online Store</span>
             <div class="flex items-center [&>*]:space-x-4 [&>*]:px-4 divide-x divide-gray-200/50 font-semibold">
                 <div>
