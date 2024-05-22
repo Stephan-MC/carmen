@@ -16,4 +16,5 @@ Route::resources(
         'product' => ['except' => 'index']
     ]
 );
-Route::get('cart', fn () => view('cart'));
+Route::view('cart', 'cart');
+Route::view('about', 'about');
