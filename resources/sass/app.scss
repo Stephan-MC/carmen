@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailind variants;
+
+@layer components {
+    .card {
+        @apply rounded border [&>*]:p-4 [&_.card-content]:py-0;
+
+        .card-title {
+            @apply bg-gray-200/50 border font-semibold;
+        }
+    }
+}

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Admin - Online Shop')</title>
-    @vite('resources/css/app.css')
+    @vite('resources/sass/app.scss')
 </head>
 <body class="">
     <div class="flex flex-col min-h-screen">
@@ -22,10 +22,10 @@
                     <span class="text-xl font-bold">Online Store</span>
                     <div class="flex items-center [&>*]:space-x-4 [&>*]:px-4 divide-x divide-gray-200/50 font-semibold">
                         <div>
-                            <a href="/" class="">Home</a>
-                            <a href="/products" class="">Products</a>
+                            <a href="{{ route('admin.home') }}" class="">Home</a>
+                            <a href="{{ route('admin.products.index') }}" class="">Products</a>
                             <a href="/cart" class="">Cart</a>
-                            <a href="" class="">Store</a>
+                            <a href="/" class="">Store</a>
                         </div>
                         <div>
                             @auth
