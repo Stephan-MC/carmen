@@ -5,15 +5,16 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('products.index', ['products' => Product::all()]);
+        return view($request->routeIs('admin.*') ? 'admin.products.index' : 'products.index', ['products' => Product::all()]);
     }
 
     /**
@@ -21,7 +22,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        return view('admin.products.create');
     }
 
     /**
@@ -29,7 +30,15 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        //
+        $attributes = $request->safe();
+
+        $product = Product::query()->create($attributes->toArray());
+
+        $image = $request->file('image')->storePubliclyAs(name: $product->id . "." . $request->file('image')->extension(), options: 'public', path: '');
+
+        $product->update(compact('image'));
+
+        return back();
     }
 
     /**
@@ -45,7 +54,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('admin.products.edit');
+        return view('admin.products.edit', compact('product'));
     }
 
     /**
