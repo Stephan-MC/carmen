@@ -21,7 +21,13 @@
                         <td>{{ $product->id }}</td>
                         <td>{{ $product->name }}</td>
                         <td><a href="{{ route('admin.product.edit', $product) }}" class="">Edit</a></td>
-                        <td><a href="{{ route('admin.product.destroy', $product) }}" class="text-red-400">Delete</a></td>
+                        <td>
+                            <form action="{{ route('admin.product.destroy', $product) }}" method="POST" onsubmit="return confirm('Are you sure to delte') }}">
+                                @csrf
+                                @method('DELETE')
+                                <input type="submit" class="border-none text-red-400 cursor-pointer" value="Delete">
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
