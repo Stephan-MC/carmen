@@ -2,10 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
+Route::redirect('/', 'products');
 Route::resource('products', \App\Http\Controllers\ProductController::class)->only('index');
 Route::resource('product', \App\Http\Controllers\ProductController::class)->only('show');
 Route::view('cart', 'cart');

@@ -16,6 +16,7 @@
                     <a href="/products" class="">Products</a>
                     <a href="/cart" class="">Cart</a>
                     <a href="" class="">Store</a>
+                    <a href="/about" class="">About</a>
                 </div>
                 <div>
                     @auth
