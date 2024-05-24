@@ -12,8 +12,8 @@
             <div class="bg-black text-white px-4 py-6 shrink-0 text-lg space-y-4">
                 <h3 class="text-white py-4 border-b font-black text-2xl">Admin Panel</h3>
                 <div class="flex flex-col space-y-4">
-                    <a href="" class="px-2">Admin - Home</a>
-                    <a href="" class="px-2">Admin - Products</a>
+                    <a href="{{ route('admin.home') }}" class="px-2">Admin - Home</a>
+                    <a href="{{ route('admin.products.index') }}" class="px-2">Admin - Products</a>
                     <a href="/" class="px-2 py-1 bg-blue-500 rounded">Go Back to home page</a>
                 </div>
             </div>
@@ -22,8 +22,8 @@
                     <span class="text-xl font-bold">Online Store</span>
                     <div class="flex items-center [&>*]:space-x-4 [&>*]:px-4 divide-x divide-gray-200/50 font-semibold">
                         <div>
-                            <a href="{{ route('admin.home') }}" class="">Home</a>
-                            <a href="{{ route('admin.products.index') }}" class="">Products</a>
+                            <a href="/" class="">Home</a>
+                            <a href="{{ route('products.index') }}" class="">Products</a>
                             <a href="/cart" class="">Cart</a>
                             <a href="/" class="">Store</a>
                         </div>
