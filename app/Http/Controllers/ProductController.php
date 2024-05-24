@@ -62,28 +62,19 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
-        $attributes = $request->validate([
-            "name" => "required|max:255",
-            "description" => "required",
-            "price" => "required|numeric|gt:0",
-            'image' => 'image',
-        ]);
+        $attributes = $request->safe();
 
         if ($request->hasFile('image')) {
             $imageName = $product->id . "." . $request->file('image')->extension();
 
-            $request->file('image')->storePubliclyAs($imageName);
-            // Storage::disk('public')->put(
-            //     $imageName,
-            //     file_get_contents($request->file('image')->getRealPath())
-            // );
+            $image = $request->file('image')->storePubliclyAs(path: '', name: $imageName, options: 'public');
 
-            $attributes['image'] = $imageName;
+            $attributes = $attributes->merge(compact('image'));
         }
 
-        $product->update($attributes);
+        $product->update($attributes->toArray());
 
-        return redirect()->route('admin.product.index');
+        return redirect()->route('admin.products.index');
     }
 
     /**
